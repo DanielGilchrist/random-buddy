@@ -88,6 +88,11 @@ window.onload = function () {
       return
     }
 
+    if (namesList.includes(name)) {
+      window.alert("This name already exists!")
+      return
+    }
+
     namesList.push(name)
 
     populateNames([name])
