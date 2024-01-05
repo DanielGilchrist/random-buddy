@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#ffffff">
+  <title>Random Buddy</title>
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+
+<body>
+  <div id="container">
+    <h1>Random Buddy</h1>
+
+    <div class="input-group">
+      <p>Enter a name</p>
+      <input type="text" id="nameInput" />
+      <button id="nameSubmit" onclick="submitName()">Submit</button>
+    </div>
+
+    <ul id="nameList"></ul>
+
+    <button id="pairRandom" onclick="pairRandomBuddies()">Pair random buddies</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
