@@ -43,4 +43,15 @@ window.onload = function () {
       pairingsList.appendChild(pairElement)
     })
   }
+
+  /* Event Handlers */
+  window.copyUrlButton = function () {
+    const url = window.location.href
+    navigator.clipboard.writeText(url).then(() => {
+      alert('URL copied to clipboard!')
+    }).catch(err => {
+      console.error('Error copying url: ', err)
+    })
+  }
+  /* /Event Handlers */
 }

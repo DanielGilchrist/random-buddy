@@ -10,20 +10,6 @@ input[type="text"] {
   border-radius: 4px;
 }
 
-button {
-  background-color: #4a90e2;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #357ab8;
-}
-
 ul {
   list-style: none;
   padding: 0;
