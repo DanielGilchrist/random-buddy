@@ -4,14 +4,9 @@ window.onload = function () {
   function checkForHashAndSecret () {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    console.log(queryString)
-    console.log(urlParams)
 
     const hash = urlParams.get('hash')
     const secret = urlParams.get('secret')
-
-    console.log(hash)
-    console.log(secret)
 
     if (hash == null || secret == null) {
       window.alert("A hash and secret key must be passed!")
@@ -19,8 +14,6 @@ window.onload = function () {
     }
 
     const pairings = decryptPairings(hash, secret)
-    console.log(pairings)
-
     populatePairings(pairings)
   }
 
