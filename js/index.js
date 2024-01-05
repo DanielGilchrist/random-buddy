@@ -5,41 +5,6 @@ window.onload = function () {
     populateNames(namesList)
   }
 
-  checkForHashAndSecret()
-
-  function checkForHashAndSecret () {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    console.log(queryString)
-    console.log(urlParams)
-
-    const hash = urlParams.get('hash');
-    const secret = urlParams.get('secret');
-
-    console.log(hash)
-    console.log(secret)
-
-    if (hash == null || secret == null) {
-      console.log("No hash or secret found")
-      return
-    }
-
-    const pairings = decryptPairings(hash, secret);
-    console.log(pairings);
-  }
-
-  function encryptPairings(pairings, secretKey) {
-    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(pairings), secretKey).toString();
-    console.log(encrypted);
-    return encrypted
-  }
-
-  function decryptPairings(encryptedHash, secretKey) {
-    const bytes = CryptoJS.AES.decrypt(encryptedHash, secretKey);
-    const originalText = bytes.toString(CryptoJS.enc.Utf8);
-    return JSON.parse(originalText);
-  }
-
   function populateNames (names) {
     const nameList = document.getElementById("nameList")
 
@@ -84,6 +49,11 @@ window.onload = function () {
     return typeof(localStorage) !== "undefined" ? callback() : null
   }
 
+  function encryptPairings(pairings, secretKey) {
+    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(pairings), secretKey).toString();
+    return encrypted
+  }
+
   /* Event Handlers */
   window.clearBuddies = function () {
     const nameList = document.getElementById("nameList")
@@ -111,8 +81,12 @@ window.onload = function () {
   }
 
   window.pairRandomBuddies = function () {
-    const joinedNames = namesList.join(", ")
-    window.alert("Your random buddy pairings are: " + joinedNames)
+    const pairings = [["Bob", "Amanda"], ["Sophie", "John"], ["Sally", "Joe"]]
+    const secret = window.prompt("Please enter a secret key")
+    const hash = encryptPairings(pairings, secret)
+
+    const url = `pages/pairings.html?hash=${encodeURIComponent(hash)}&secret=${encodeURIComponent(secret)}`;
+    window.location.href = url;
   }
   /* /Event Handlers */
 }
