@@ -1,11 +1,21 @@
 .pairing {
-  background-color: #e7e7e7;
+  background-color: #e7f3fe;
   margin: 10px 0;
   padding: 15px;
   border-radius: 8px;
+  border-left: 4px solid #4a90e2;
+  text-align: center;
 }
 
 .pair {
+  display: block;
   font-weight: bold;
+  color: #333;
+  margin: 5px 0;
+}
+
+.paired-text {
+  font-style: italic;
   color: #4a90e2;
+  margin: 10px 0;
 }

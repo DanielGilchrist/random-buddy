@@ -36,7 +36,10 @@ window.onload = function () {
     pairings.forEach(pair => {
       const pairElement = document.createElement("div")
       pairElement.classList.add("pairing")
-      pairElement.innerHTML = `<span class="pair">${pair[0]}</span> and <span class="pair">${pair[1]}</span>`
+      pairElement.innerHTML = `
+          <span class="pair">${pair[0]}</span>
+          <div class="paired-text">is paired with</div>
+          <span class="pair">${pair[1]}</span>`
       pairingsList.appendChild(pairElement)
     })
   }
