@@ -97,6 +97,16 @@ window.onload = function () {
   }
 
   window.pairRandomBuddies = function () {
+    if (namesList.length < 4) {
+      window.alert("You need to add at least 4 names to pair buddies!")
+      return
+    }
+
+    if (namesList.length % 2 !== 0) {
+      window.alert("You need to add an even number of names to pair buddies!")
+      return
+    }
+
     const pairings = pairBuddies()
     const secret = window.prompt("Please enter a secret key")
     const hash = encryptPairings(pairings, secret)
