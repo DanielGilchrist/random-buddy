@@ -29,11 +29,17 @@ window.onload = function () {
     pairings.forEach(pair => {
       const pairElement = document.createElement("div")
       pairElement.classList.add("pairing")
-      pairElement.innerHTML = `
-          <span class="pair">${pair[0]}</span>
-          <div class="paired-text">is paired with</div>
-          <span class="pair">${pair[1]}</span>`
-      pairingsList.appendChild(pairElement)
+      if (pair[0] == null || pair[1] == null) {
+        pairElement.innerHTML = `
+          <span class="pair">${pair[0] || pair[1]}</span>
+          <div class="paired-text">will be alone forever</div>`
+      } else {
+        pairElement.innerHTML = `
+            <span class="pair">${pair[0]}</span>
+            <div class="paired-text">is paired with</div>
+            <span class="pair">${pair[1]}</span>`
+        pairingsList.appendChild(pairElement)
+      }
     })
   }
 
