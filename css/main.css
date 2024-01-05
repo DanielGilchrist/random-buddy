@@ -82,3 +82,31 @@ ul li {
 .delete-btn:hover {
   background-color: #e55347;
 }
+
+.button-group {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#pairRandom, #clearButton {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+}
+
+#pairRandom:hover, #clearButton:hover {
+  background-color: #357ab8;
+}
+
+#clearButton {
+  background-color: #ff6347;
+}
+
+#clearButton:hover {
+  background-color: #e55347;
+}
