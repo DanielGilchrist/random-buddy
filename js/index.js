@@ -45,6 +45,11 @@ window.onload = function () {
     })
   }
 
+  function clearNames () {
+    namesList = []
+    setNames()
+  }
+
   function storageWrapper (callback) {
     return typeof(localStorage) !== "undefined" ? callback() : null
   }
@@ -71,8 +76,7 @@ window.onload = function () {
     const nameList = document.getElementById("nameList")
     nameList.innerHTML = ""
 
-    namesList = []
-    setNames()
+    clearNames()
   }
 
   window.submitName = function () {
@@ -99,6 +103,8 @@ window.onload = function () {
 
     const url = `pages/pairings.html?hash=${encodeURIComponent(hash)}&secret=${encodeURIComponent(secret)}`
     window.location.href = url
+
+    clearNames()
   }
   /* /Event Handlers */
 }
