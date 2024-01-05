@@ -7,8 +7,8 @@ window.onload = function () {
     console.log(queryString)
     console.log(urlParams)
 
-    const hash = urlParams.get('hash');
-    const secret = urlParams.get('secret');
+    const hash = urlParams.get('hash')
+    const secret = urlParams.get('secret')
 
     console.log(hash)
     console.log(secret)
@@ -18,26 +18,26 @@ window.onload = function () {
       return
     }
 
-    const pairings = decryptPairings(hash, secret);
+    const pairings = decryptPairings(hash, secret)
     console.log(pairings)
 
     populatePairings(pairings)
   }
 
   function decryptPairings(encryptedHash, secretKey) {
-    const bytes = CryptoJS.AES.decrypt(encryptedHash, secretKey);
-    const originalText = bytes.toString(CryptoJS.enc.Utf8);
-    return JSON.parse(originalText);
+    const bytes = CryptoJS.AES.decrypt(encryptedHash, secretKey)
+    const originalText = bytes.toString(CryptoJS.enc.Utf8)
+    return JSON.parse(originalText)
   }
 
   function populatePairings (pairings) {
-    const pairingsList = document.getElementById("pairingsList");
+    const pairingsList = document.getElementById("pairingsList")
 
     pairings.forEach(pair => {
-      const pairElement = document.createElement("div");
-      pairElement.classList.add("pairing");
-      pairElement.innerHTML = `<span class="pair">${pair[0]}</span> and <span class="pair">${pair[1]}</span>`;
-      pairingsList.appendChild(pairElement);
+      const pairElement = document.createElement("div")
+      pairElement.classList.add("pairing")
+      pairElement.innerHTML = `<span class="pair">${pair[0]}</span> and <span class="pair">${pair[1]}</span>`
+      pairingsList.appendChild(pairElement)
     })
   }
 }

@@ -50,8 +50,20 @@ window.onload = function () {
   }
 
   function encryptPairings(pairings, secretKey) {
-    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(pairings), secretKey).toString();
+    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(pairings), secretKey).toString()
     return encrypted
+  }
+
+  function pairBuddies () {
+    const shuffledNames = namesList.sort((_a, _b) => 0.5 - Math.random())
+    const pairings = []
+
+    for (let i = 0; i < shuffledNames.length; i += 2) {
+      const pair = [shuffledNames[i], shuffledNames[i+1]]
+      pairings.push(pair)
+    }
+
+    return pairings
   }
 
   /* Event Handlers */
@@ -81,12 +93,12 @@ window.onload = function () {
   }
 
   window.pairRandomBuddies = function () {
-    const pairings = [["Bob", "Amanda"], ["Sophie", "John"], ["Sally", "Joe"]]
+    const pairings = pairBuddies()
     const secret = window.prompt("Please enter a secret key")
     const hash = encryptPairings(pairings, secret)
 
-    const url = `pages/pairings.html?hash=${encodeURIComponent(hash)}&secret=${encodeURIComponent(secret)}`;
-    window.location.href = url;
+    const url = `pages/pairings.html?hash=${encodeURIComponent(hash)}&secret=${encodeURIComponent(secret)}`
+    window.location.href = url
   }
   /* /Event Handlers */
 }
