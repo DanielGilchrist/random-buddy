@@ -46,7 +46,7 @@ ul li {
   margin-top: 20px;
 }
 
-#pairRandom, #clearButton {
+#pair-random, #clear-button {
   background-color: #4a90e2;
   color: white;
   border: none;
@@ -57,14 +57,14 @@ ul li {
   margin-right: 10px;
 }
 
-#pairRandom:hover, #clearButton:hover {
+#pair-random:hover, #clear-button:hover {
   background-color: #357ab8;
 }
 
-#clearButton {
+#clear-button {
   background-color: #ff6347;
 }
 
-#clearButton:hover {
+#clear-button:hover {
   background-color: #e55347;
 }

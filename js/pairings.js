@@ -24,7 +24,7 @@ window.onload = function () {
   }
 
   function populatePairings (pairings) {
-    const pairingsList = document.getElementById("pairingsList")
+    const pairingsList = document.getElementById("pairings-list")
 
     pairings.forEach(pair => {
       const pairElement = document.createElement("div")

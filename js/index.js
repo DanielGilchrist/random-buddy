@@ -6,7 +6,7 @@ window.onload = function () {
   }
 
   function populateNames (names) {
-    const nameList = document.getElementById("nameList")
+    const nameList = document.getElementById("name-list")
 
     names.forEach(name => {
       const nameItem = document.createElement("li")
@@ -73,14 +73,14 @@ window.onload = function () {
 
   /* Event Handlers */
   window.clearBuddies = function () {
-    const nameList = document.getElementById("nameList")
+    const nameList = document.getElementById("name-list")
     nameList.innerHTML = ""
 
     clearNames()
   }
 
   window.submitName = function () {
-    const nameInput = document.getElementById("nameInput")
+    const nameInput = document.getElementById("name-input")
     const name = nameInput.value
 
     if (name === "") {
