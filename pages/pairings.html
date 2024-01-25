@@ -9,8 +9,13 @@
 <body>
   <div id="container">
     <h1>Buddy Pairings</h1>
-    <p id="copy-url-label">Copy the URL to remember this page</p>
-    <button id="copy-url-button" onclick="copyUrlButton()">Copy URL to Clipboard</button>
+    <div class="top-controls">
+      <p id="copy-url-label">Copy the URL to remember this page</p>
+      <div id="copy-url-button-and-search">
+        <button id="copy-url-button" onclick="copyUrlButton()">Copy URL to Clipboard</button>
+        <input type="text" id="search-input" placeholder="Search Pairings" />
+      </div>
+    </div>
     <div id="pairings-list">
       <!-- Pairings will be populated here -->
     </div>

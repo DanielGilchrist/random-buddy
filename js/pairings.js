@@ -1,4 +1,7 @@
 window.onload = function () {
+  document.getElementById("search-input").addEventListener("input", handleFilterPairings)
+
+  let allPairings = []
   checkForHashAndSecret()
 
   function checkForHashAndSecret () {
@@ -14,6 +17,7 @@ window.onload = function () {
     }
 
     const pairings = decryptPairings(hash, secret)
+    allPairings = pairings
     populatePairings(pairings)
   }
 
@@ -36,6 +40,23 @@ window.onload = function () {
       pairingsList.appendChild(pairElement)
     })
   }
+
+  /* Event Listeners */
+  function handleFilterPairings (event) {
+    console.log(event)
+    const filter = event.target.value
+    if (filter === "") {
+      populatePairings(allPairings)
+      return
+    }
+
+    const pairingsList = document.getElementById("pairings-list")
+    pairingsList.innerHTML = ""
+
+    const filteredPairings = allPairings.filter(pair => pair.some(name => name.includes(filter)))
+    populatePairings(filteredPairings)
+  }
+  /* /Event Listeners */
 
   /* Event Handlers */
   window.copyUrlButton = function () {
