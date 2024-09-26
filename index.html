@@ -14,8 +14,7 @@
     <h1>Random Buddy</h1>
 
     <div class="input-group">
-      <p>Enter a name</p>
-      <input type="text" id="name-input" minLength="1" maxLength="100" />
+      <input type="text" id="name-input" placeholder="Enter a name" minLength="1" maxLength="100" onkeypress="if(event.key === 'Enter') submitName();" />
       <button onclick="submitName()">Submit</button>
     </div>
 
