@@ -71,6 +71,19 @@ window.onload = function() {
     return pairings
   }
 
+  /* Event Listeners */
+  document.addEventListener("keydown", function(event) {
+    if (isShiftEnter(event)) {
+      event.preventDefault()
+      pairRandomBuddies()
+    }
+  })
+
+  function isShiftEnter(event) {
+    return event.shiftKey && event.key === "Enter"
+  }
+  /* /Event Listeners */
+
   /* Event Handlers */
   window.clearBuddies = function() {
     const nameList = document.getElementById("name-list")
