@@ -1,7 +1,7 @@
-window.onload = function () {
+window.onload = function() {
   checkForHashAndSecret()
 
-  function checkForHashAndSecret () {
+  function checkForHashAndSecret() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
 
@@ -23,7 +23,7 @@ window.onload = function () {
     return JSON.parse(originalText)
   }
 
-  function populatePairings (pairings) {
+  function populatePairings(pairings) {
     const pairingsList = document.getElementById("pairings-list")
 
     pairings.forEach(pair => {
@@ -38,7 +38,7 @@ window.onload = function () {
   }
 
   /* Event Handlers */
-  window.copyUrlButton = function () {
+  window.copyUrlButton = function() {
     const url = window.location.href
     navigator.clipboard.writeText(url).then(() => {
       alert('URL copied to clipboard!')

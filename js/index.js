@@ -1,11 +1,11 @@
-window.onload = function () {
+window.onload = function() {
   let namesList = getNames() || []
 
   if (namesList.length > 0) {
     populateNames(namesList)
   }
 
-  function populateNames (names) {
+  function populateNames(names) {
     const nameList = document.getElementById("name-list")
 
     names.forEach(name => {
@@ -15,13 +15,13 @@ window.onload = function () {
       const deleteBtn = document.createElement("button")
       deleteBtn.textContent = "Remove"
       deleteBtn.className = "delete-btn"
-      deleteBtn.onclick = function () {
-          nameList.removeChild(nameItem)
+      deleteBtn.onclick = function() {
+        nameList.removeChild(nameItem)
 
-          const index = namesList.indexOf(name)
-          namesList.splice(index, 1)
+        const index = namesList.indexOf(name)
+        namesList.splice(index, 1)
 
-          setNames()
+        setNames()
       }
 
       nameItem.appendChild(deleteBtn)
@@ -31,27 +31,27 @@ window.onload = function () {
     setNames()
   }
 
-  function getNames () {
+  function getNames() {
     return storageWrapper(() => {
       const storedNames = localStorage.getItem("names")
       return storedNames ? storedNames.split(",") : null
     })
   }
 
-  function setNames () {
+  function setNames() {
     storageWrapper(() => {
       const joinedNames = namesList.join(",")
       localStorage.setItem("names", joinedNames)
     })
   }
 
-  function clearNames () {
+  function clearNames() {
     namesList = []
     setNames()
   }
 
-  function storageWrapper (callback) {
-    return typeof(localStorage) !== "undefined" ? callback() : null
+  function storageWrapper(callback) {
+    return typeof (localStorage) !== "undefined" ? callback() : null
   }
 
   function encryptPairings(pairings, secretKey) {
@@ -59,12 +59,12 @@ window.onload = function () {
     return encrypted
   }
 
-  function pairBuddies () {
+  function pairBuddies() {
     const shuffledNames = namesList.sort((_a, _b) => 0.5 - Math.random())
     const pairings = []
 
     for (let i = 0; i < shuffledNames.length; i += 2) {
-      const pair = [shuffledNames[i], shuffledNames[i+1]]
+      const pair = [shuffledNames[i], shuffledNames[i + 1]]
       pairings.push(pair)
     }
 
@@ -72,14 +72,14 @@ window.onload = function () {
   }
 
   /* Event Handlers */
-  window.clearBuddies = function () {
+  window.clearBuddies = function() {
     const nameList = document.getElementById("name-list")
     nameList.innerHTML = ""
 
     clearNames()
   }
 
-  window.submitName = function () {
+  window.submitName = function() {
     const nameInput = document.getElementById("name-input")
     const name = nameInput.value
 
@@ -101,7 +101,7 @@ window.onload = function () {
     nameInput.focus()
   }
 
-  window.pairRandomBuddies = function () {
+  window.pairRandomBuddies = function() {
     if (namesList.length < 4) {
       window.alert("You need to add at least 4 names to pair buddies!")
       return
